@@ -1,0 +1,22 @@
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; min-width: 320px; margin: 0; overflow: hidden; }
+body { background: #f6f6f6; color: #183e59; font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; }
+.workspace { display: grid; grid-template-rows: 56px minmax(0, 1fr); width: 100%; height: 100dvh; overflow: hidden; background: #f6f6f6; }
+.topbar { position: relative; display: flex; align-items: center; justify-content: center; background: #f6f6f6; }
+.history-controls { display: flex; align-items: center; gap: 8px; }
+.history-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 96px; height: 36px; padding: 0 12px; border: 1px solid #cbd5dc; border-radius: 6px; background: #fff; color: #24475e; font: inherit; font-size: 14px; cursor: pointer; }
+.history-controls button:hover:not(:disabled) { border-color: #98b1c6; background: #f2f6f8; }
+.history-controls button:disabled { color: #9baab4; cursor: default; }
+.history-controls button span { font-size: 21px; line-height: 1; }
+.topbar > small { position: absolute; right: 18px; color: #5e7483; font-size: 12px; }
+.canvas { display: block; width: 100%; height: 100%; background: #f6f6f6; cursor: crosshair; touch-action: none; user-select: none; }
+.grid-line { fill: none; stroke: #98b1c6; stroke-width: 1; }
+.cad-shape, .draft { fill: none; stroke: #183e59; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.cad-shape { pointer-events: stroke; }
+.draft { pointer-events: none; }
+
+@media (max-width: 520px) {
+  .workspace { grid-template-rows: 52px minmax(0, 1fr); }
+  .history-controls button { min-width: 84px; height: 34px; font-size: 13px; }
+  .topbar > small { right: 8px; font-size: 10px; }
+}

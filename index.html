@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f6f6" />
+    <title>handcad</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="workspace" aria-label="CAD作図画面">
+      <header class="topbar">
+        <div class="history-controls" aria-label="操作履歴">
+          <button id="undo" type="button" aria-label="一つ戻る" title="一つ戻る" disabled><span aria-hidden="true">↶</span> 戻る</button>
+          <button id="redo" type="button" aria-label="戻った操作をやり直す" title="戻った操作をやり直す" disabled><span aria-hidden="true">↷</span> やり直す</button>
+        </div>
+        <small>1グリッド = 10 mm</small>
+      </header>
+      <svg class="canvas" viewBox="0 0 1200 800" aria-label="グリッド上に図形を描くキャンバス">
+        <defs>
+          <pattern id="cad-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <path d="M 24 0 L 0 0 0 24" class="grid-line" />
+          </pattern>
+        </defs>
+        <rect id="grid-background" width="1200" height="800" fill="url(#cad-grid)" />
+        <g id="shapes" class="shapes"></g>
+        <path id="draft" class="draft" d="" />
+      </svg>
+    </main>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
